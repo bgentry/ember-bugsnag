@@ -3,7 +3,7 @@ import config from '../config/environment';
 import Bugsnag from 'bugsnag';
 
 function registerEmberOnError(notifyFn) {
-  let originalOnError = Ember.onerror || Ember.K;
+  let originalOnError = Ember.onerror || function() {};
   Ember.onerror = function(err) {
     originalOnError(err);
     notifyFn(err);
