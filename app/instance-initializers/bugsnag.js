@@ -7,6 +7,7 @@ function registerEmberOnError(notifyFn) {
   Ember.onerror = function(err) {
     originalOnError(err);
     notifyFn(err);
+    throw err;
   };
 }
 
